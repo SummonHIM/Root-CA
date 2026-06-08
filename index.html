@@ -4,31 +4,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>SummonHIM Root CA</title>
+    <meta name="description"
+        content="Official repository for SummonHIM Root CA. Download CA certificates in PEM and DER formats, and access latest Certificate Revocation Lists (CRL).">
+    <meta name="keywords" content="SummonHIM, Root CA, Certificate Authority, SSL Certificate, Download CRL, PEM, DER">
+    <meta property="og:title" content="SummonHIM Root CA Repository">
+    <meta property="og:description" content="Securely download SummonHIM Root CA certificates and revocation lists.">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://ca.summonhim.top/">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script>
+        /*!
+         * Color mode toggler for Bootstrap's docs (https://getbootstrap.com/)
+         * Copyright 2011-2025 The Bootstrap Authors
+         * Licensed under the Creative Commons Attribution 3.0 Unported License.
+         */
+
+        (() => {
+            'use strict'
+
+            const getStoredTheme = () => localStorage.getItem('theme')
+            const setStoredTheme = theme => localStorage.setItem('theme', theme)
+
+            const getPreferredTheme = () => {
+                const storedTheme = getStoredTheme()
+                if (storedTheme) {
+                    return storedTheme
+                }
+
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+            }
+
+            const setTheme = theme => {
+                if (theme === 'auto') {
+                    document.documentElement.setAttribute('data-bs-theme', (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'))
+                } else {
+                    document.documentElement.setAttribute('data-bs-theme', theme)
+                }
+            }
+
+            setTheme(getPreferredTheme())
+
+            const showActiveTheme = (theme, focus = false) => {
+                const themeSwitcher = document.querySelector('#bd-theme')
+
+                if (!themeSwitcher) {
+                    return
+                }
+
+                const themeSwitcherText = document.querySelector('#bd-theme-text')
+                const activeThemeIcon = document.querySelector('.theme-icon-active use')
+                const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+                const svgOfActiveBtn = btnToActive.querySelector('svg use').getAttribute('href')
+
+                document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+                    element.classList.remove('active')
+                    element.setAttribute('aria-pressed', 'false')
+                })
+
+                btnToActive.classList.add('active')
+                btnToActive.setAttribute('aria-pressed', 'true')
+                activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+                const themeSwitcherLabel = `${themeSwitcherText.textContent} (${btnToActive.dataset.bsThemeValue})`
+                themeSwitcher.setAttribute('aria-label', themeSwitcherLabel)
+
+                if (focus) {
+                    themeSwitcher.focus()
+                }
+            }
+
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                const storedTheme = getStoredTheme()
+                if (storedTheme !== 'light' && storedTheme !== 'dark') {
+                    setTheme(getPreferredTheme())
+                }
+            })
+
+            window.addEventListener('DOMContentLoaded', () => {
+                showActiveTheme(getPreferredTheme())
+
+                document.querySelectorAll('[data-bs-theme-value]')
+                    .forEach(toggle => {
+                        toggle.addEventListener('click', () => {
+                            const theme = toggle.getAttribute('data-bs-theme-value')
+                            setStoredTheme(theme)
+                            setTheme(theme)
+                            showActiveTheme(theme, true)
+                        })
+                    })
+            })
+        })()
+    </script>
 </head>
 
 <body>
     <div class="container">
         <h1 class="fs-2">SummonHIM Root CA</h1>
 
-        <h2 class="fs-3">Download</h2>
-        <div class="d-flex gap-2">
+        <div>
+            <h2 class="fs-4">Download</h2>
             <div>
-                <h3 class="fs-4">Download CA Certificate</h3>
+                <h3 class="fs-6">Download CA Certificate</h3>
                 <ul>
                     <li><a href="./SummonHIM_Root_CA.crt">PEM Format</a></li>
                     <li><a href="./SummonHIM_Root_CA.cer">DER Format</a></li>
                 </ul>
             </div>
-
             <div>
-                <h3 class="fs-4">Get Certificate Revocation Lists</h3>
+                <h3 class="fs-6">Get Certificate Revocation Lists</h3>
                 <ul>
                     <li><a href="./revlist.crl">PEM Format</a></li>
                     <li><a href="./revlist.der">DER Format</a></li>
                 </ul>
+            </div>
+        </div>
+
+        <div>
+            <h2 class="fs-4">Fingerprints</h2>
+            <div>
+                <h3 class="fs-6">x509 SHA1:</h3>
+                <code>
+                    42:34:E6:A1:19:CE:7D:B9:33:02:0A:D5:85:92:18:7C:82:73:BD:D0
+                </code>
+            </div>
+            <div>
+                <h3 class="fs-6">DER SHA256:</h3>
+                <code>
+                    44:02:1C:A7:5F:AA:3E:E2:39:71:0A:FC:B7:FB:8B:0D:4E:CF:2A:4A:1B:88:F7:C3:F5:76:5B:B7:6A:EF:80:EC
+                </code>
+            </div>
+            <div>
+                <h3 class="fs-6">ssh MD5:</h3>
+                <code>
+                    14:B1:3E:B5:70:85:4C:E0:79:DC:A3:DA:FB:83:53:4E
+                </code>
+            </div>
+            <div>
+                <h3 class="fs-6">ssh SHA256 B64:</h3>
+                <code>
+                    8zH3+jSLOVybSaDC/tZ1ZBSwFxCZ2+T4HUcoTlBvvAk
+                </code>
             </div>
         </div>
 
