@@ -4,36 +4,37 @@
 
 ### Download CA Certificate
 
-- [PEM Format](./SummonHIM_Root_CA.crt)
-- [DER Format](./SummonHIM_Root_CA.cer)
+- [PEM Format](./SummonHIM_Root_CA_G1.crt)
+- [DER Format](./SummonHIM_Root_CA_G1.cer)
 
 ### Get Certificate Revocation Lists
 
-- [PEM Format](./revlist.crl)
-- [DER Format](./revlist.der)
+- [PEM Format](./RevocationList/SummonHIM_Root_CA_G1.crl)
+- [DER Format](./RevocationList/SummonHIM_Root_CA_G1.der)
 
 ## Fingerprints
 
-### x509 SHA1
+### Serial
 
 ```
-42:34:E6:A1:19:CE:7D:B9:33:02:0A:D5:85:92:18:7C:82:73:BD:D0
+756D379F9590AA70
 ```
 
-### DER SHA256
+### MD5
 
 ```
-44:02:1C:A7:5F:AA:3E:E2:39:71:0A:FC:B7:FB:8B:0D:4E:CF:2A:4A:1B:88:F7:C3:F5:76:5B:B7:6A:EF:80:EC
+D7:CC:BA:D7:4A:1F:00:60:08:02:84:9B:3B:92:DD:F5
 ```
 
-### ssh MD5
+### SHA1
 
 ```
-14:B1:3E:B5:70:85:4C:E0:79:DC:A3:DA:FB:83:53:4E
+1B:46:52:BD:68:70:46:74:FB:EE:13:D1:83:53:54:3B:FB:84:29:07
 ```
 
-### ssh SHA256 B64
+### SHA256
 
 ```
-8zH3+jSLOVybSaDC/tZ1ZBSwFxCZ2+T4HUcoTlBvvAk
+C7:8D:02:06:59:D1:F4:79:49:AD:A1:92:A7:7C:DB:5F
+5F:43:89:98:8C:43:35:E8:FE:7E:B2:AA:D8:57:D9:B5
 ```
